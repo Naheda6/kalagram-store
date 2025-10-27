@@ -10,6 +10,7 @@ import CategoryGrid from "./components/CategoryGrid";
 import BacolaProductCard from "./components/BacolaProductCard";
 import PromoBanner from "./components/PromoBanner";
 import Footer from "./components/Footer";
+import MobileBottomNav from "./components/MobileBottomNav";
 import { products } from "./mockData";
 import { ChevronRight } from "lucide-react";
 
@@ -34,11 +35,11 @@ const Home = () => {
   const featuredProducts = products.filter(p => p.badge === 'Organic').slice(0, 10);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-20 md:pb-0">
       <BacolaHeader cartCount={cartCount} wishlistCount={wishlistCount} />
       
       <main>
-        <section className="py-8">
+        <section className="py-4 md:py-8">
           <div className="container mx-auto px-4">
             <BacolaHeroSlider />
           </div>
@@ -46,18 +47,19 @@ const Home = () => {
 
         <ServiceBanner />
         
-        <section className="py-12 bg-white">
+        <section className="py-8 md:py-12 bg-white">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-6 md:mb-8">
               <div>
-                <h2 className="text-3xl font-black text-gray-900">Best Sellers</h2>
-                <p className="text-gray-600 mt-1">Do not miss this opportunity at a special discount just for this week.</p>
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900">Best Sellers</h2>
+                <p className="text-sm md:text-base text-gray-600 mt-1">Do not miss this opportunity at a special discount just for this week.</p>
               </div>
-              <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1">
-                View All <ChevronRight className="h-5 w-5" />
+              <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1 text-sm">
+                <span className="hidden md:inline">View All</span>
+                <ChevronRight className="h-5 w-5" />
               </button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
               {(bestSellers.length > 0 ? bestSellers : products.slice(0, 10)).map((product) => (
                 <BacolaProductCard
                   key={product.id}
@@ -74,18 +76,19 @@ const Home = () => {
 
         <CategoryGrid />
 
-        <section className="py-12 bg-white">
+        <section className="py-8 md:py-12 bg-white">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-6 md:mb-8">
               <div>
-                <h2 className="text-3xl font-black text-gray-900">New Arrivals</h2>
-                <p className="text-gray-600 mt-1">New products with updated stocks</p>
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900">New Arrivals</h2>
+                <p className="text-sm md:text-base text-gray-600 mt-1">New products with updated stocks</p>
               </div>
-              <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1">
-                View All <ChevronRight className="h-5 w-5" />
+              <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1 text-sm">
+                <span className="hidden md:inline">View All</span>
+                <ChevronRight className="h-5 w-5" />
               </button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
               {newArrivals.map((product) => (
                 <BacolaProductCard
                   key={product.id}
@@ -98,18 +101,19 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="py-12 bg-gray-50">
+        <section className="py-8 md:py-12 bg-gray-50">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-6 md:mb-8">
               <div>
-                <h2 className="text-3xl font-black text-gray-900">Organic Products</h2>
-                <p className="text-gray-600 mt-1">100% natural and chemical-free</p>
+                <h2 className="text-2xl md:text-3xl font-black text-gray-900">Organic Products</h2>
+                <p className="text-sm md:text-base text-gray-600 mt-1">100% natural and chemical-free</p>
               </div>
-              <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1">
-                View All <ChevronRight className="h-5 w-5" />
+              <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1 text-sm">
+                <span className="hidden md:inline">View All</span>
+                <ChevronRight className="h-5 w-5" />
               </button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
               {(featuredProducts.length > 0 ? featuredProducts : products.slice(10, 20)).map((product) => (
                 <BacolaProductCard
                   key={product.id}
@@ -124,6 +128,7 @@ const Home = () => {
       </main>
 
       <Footer />
+      <MobileBottomNav cartCount={cartCount} wishlistCount={wishlistCount} />
       <Toaster position="top-right" richColors />
     </div>
   );
