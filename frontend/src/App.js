@@ -3,23 +3,24 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "./components/ui/sonner";
 import { toast } from "sonner";
-import Header from "./components/Header";
-import HeroSlider from "./components/HeroSlider";
+import BacolaHeader from "./components/BacolaHeader";
+import BacolaHeroSlider from "./components/BacolaHeroSlider";
 import ServiceBanner from "./components/ServiceBanner";
 import CategoryGrid from "./components/CategoryGrid";
-import ProductSection from "./components/ProductSection";
+import BacolaProductCard from "./components/BacolaProductCard";
 import PromoBanner from "./components/PromoBanner";
 import Footer from "./components/Footer";
 import { products } from "./mockData";
+import { ChevronRight } from "lucide-react";
 
 const Home = () => {
   const [cartCount, setCartCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
 
-  const handleAddToCart = (product) => {
-    setCartCount(prev => prev + 1);
+  const handleAddToCart = (product, quantity = 1) => {
+    setCartCount(prev => prev + quantity);
     toast.success(`${product.name} added to cart!`, {
-      description: `Price: ₹${product.price}`,
+      description: `Quantity: ${quantity} - Price: ₹${product.price * quantity}`,
     });
   };
 
@@ -28,52 +29,109 @@ const Home = () => {
     toast.success(`${product.name} added to wishlist!`);
   };
 
-  // Split products for different sections
-  const bestSellers = products.filter(p => p.badge === 'Best Seller').slice(0, 8);
-  const newArrivals = products.slice(0, 8);
-  const featuredProducts = products.filter(p => p.badge === 'Organic').slice(0, 8);
+  const bestSellers = products.filter(p => p.badge === 'Best Seller').slice(0, 10);
+  const newArrivals = products.slice(0, 10);
+  const featuredProducts = products.filter(p => p.badge === 'Organic').slice(0, 10);
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header cartCount={cartCount} wishlistCount={wishlistCount} />
+    <div className="min-h-screen bg-gray-50">
+      <BacolaHeader cartCount={cartCount} wishlistCount={wishlistCount} />
       
       <main>
-        <HeroSlider />
+        {/* Hero Section */}
+        <section className="py-8">
+          <div className="container mx-auto px-4">
+            <BacolaHeroSlider />
+          </div>
+        </section>
+
+        {/* Service Banner */}
         <ServiceBanner />
         
-        <ProductSection
-          title="Best Sellers"
-          subtitle="Don't miss the current offers until the end of March"
-          products={bestSellers.length > 0 ? bestSellers : products.slice(0, 8)}
-          onAddToCart={handleAddToCart}
-          onAddToWishlist={handleAddToWishlist}
-        />
+        {/* Best Sellers */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-black text-gray-900">Best Sellers</h2>
+                <p className="text-gray-600 mt-1">Don't miss this opportunity at a special discount just for this week.</p>
+              </div>
+              <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1">
+                View All <ChevronRight className=\"h-5 w-5\" />
+              </button>
+            </div>
+            <div className=\"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4\">
+              {(bestSellers.length > 0 ? bestSellers : products.slice(0, 10)).map((product) => (
+                <BacolaProductCard
+                  key={product.id}
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                  onAddToWishlist={handleAddToWishlist}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
 
+        {/* Promo Banners */}
         <PromoBanner />
 
+        {/* Categories */}
         <CategoryGrid />
 
-        <div className="bg-gray-50">
-          <ProductSection
-            title="New Arrivals"
-            subtitle="New products with updated stocks"
-            products={newArrivals}
-            onAddToCart={handleAddToCart}
-            onAddToWishlist={handleAddToWishlist}
-          />
-        </div>
+        {/* New Arrivals */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-black text-gray-900">New Arrivals</h2>
+                <p className="text-gray-600 mt-1">New products with updated stocks</p>
+              </div>
+              <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1">
+                View All <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {newArrivals.map((product) => (
+                <BacolaProductCard
+                  key={product.id}
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                  onAddToWishlist={handleAddToWishlist}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
 
-        <ProductSection
-          title="Organic Products"
-          subtitle="100% natural and chemical-free products"
-          products={featuredProducts.length > 0 ? featuredProducts : products.slice(8, 16)}
-          onAddToCart={handleAddToCart}
-          onAddToWishlist={handleAddToWishlist}
-        />
+        {/* Organic Products */}
+        <section className="py-12 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-black text-gray-900">Organic Products</h2>
+                <p className="text-gray-600 mt-1">100% natural and chemical-free</p>
+              </div>
+              <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1">
+                View All <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {(featuredProducts.length > 0 ? featuredProducts : products.slice(10, 20)).map((product) => (
+                <BacolaProductCard
+                  key={product.id}
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                  onAddToWishlist={handleAddToWishlist}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />
-      <Toaster position="top-right" />
+      <Toaster position="top-right" richColors />
     </div>
   );
 };
