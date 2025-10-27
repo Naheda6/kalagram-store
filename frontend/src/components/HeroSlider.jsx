@@ -23,7 +23,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="relative w-full h-[450px] bg-gray-50 overflow-hidden group">
+    <div className="relative w-full h-[350px] md:h-[450px] bg-gray-50 overflow-hidden group">
       {heroSlides.map((slide, index) => (
         <div
           key={slide.id}
@@ -36,33 +36,33 @@ const HeroSlider = () => {
             backgroundPosition: 'center',
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent md:via-white/70"></div>
           
           <div className="container mx-auto px-4 h-full">
-            <div className="grid md:grid-cols-2 gap-8 h-full items-center">
-              <div className="space-y-6 z-10 relative">
-                <div className="inline-block bg-red-500 text-white px-4 py-2 text-sm font-semibold rounded-md">
+            <div className="flex items-center h-full">
+              <div className="space-y-3 md:space-y-6 z-10 relative max-w-lg">
+                <div className="inline-block bg-red-500 text-white px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-semibold rounded-md">
                   {slide.discount}
                 </div>
                 
-                <h2 className="text-5xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
                   {slide.title}
                 </h2>
                 
-                <p className="text-2xl text-gray-700 font-medium">
+                <p className="text-lg md:text-2xl text-gray-700 font-medium">
                   {slide.subtitle}
                 </p>
                 
-                <p className="text-gray-600">{slide.description}</p>
+                <p className="text-sm md:text-base text-gray-600">{slide.description}</p>
                 
                 <div className="flex items-baseline gap-2">
-                  <span className="text-gray-600">from</span>
-                  <span className="text-3xl font-bold text-emerald-600">
+                  <span className="text-sm md:text-base text-gray-600">from</span>
+                  <span className="text-2xl md:text-3xl font-bold text-emerald-600">
                     {slide.priceFrom}
                   </span>
                 </div>
                 
-                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-6 text-base font-semibold rounded-full">
+                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-5 md:px-8 md:py-6 text-sm md:text-base font-semibold rounded-full">
                   {slide.ctaText}
                 </Button>
               </div>
@@ -73,24 +73,24 @@ const HeroSlider = () => {
 
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-emerald-600 hover:text-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white hover:bg-emerald-600 hover:text-white p-2 md:p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all"
       >
-        <ChevronLeft className="h-6 w-6" />
+        <ChevronLeft className="h-4 w-4 md:h-6 md:w-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-emerald-600 hover:text-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white hover:bg-emerald-600 hover:text-white p-2 md:p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all"
       >
-        <ChevronRight className="h-6 w-6" />
+        <ChevronRight className="h-4 w-4 md:h-6 md:w-6" />
       </button>
 
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
         {heroSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`h-2.5 rounded-full transition-all ${
-              index === currentSlide ? 'w-8 bg-emerald-600' : 'w-2.5 bg-gray-400'
+            className={`h-2 md:h-2.5 rounded-full transition-all ${
+              index === currentSlide ? 'w-6 md:w-8 bg-emerald-600' : 'w-2 md:w-2.5 bg-gray-400'
             }`}
           />
         ))}
