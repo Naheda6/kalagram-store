@@ -5,7 +5,8 @@ import { Button } from './ui/button';
 
 const ProductSection = ({ title, subtitle, products, onAddToCart, onAddToWishlist }) => {
   return (
-    <div className="py-12 bg-white">\n      <div className="container mx-auto px-4">
+    <div className="py-12 bg-white">
+      <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="flex items-end justify-between mb-8 border-b-2 border-gray-200 pb-4">
           <div>
