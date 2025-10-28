@@ -58,7 +58,7 @@ const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
             {/* Account - Desktop */}
             <button 
               onClick={() => navigate('/auth')}
-              className="hidden md:flex items-center gap-2 text-gray-700 hover:text-[#2bbef9] transition-colors"
+              className="hidden md:flex items-center gap-2 text-gray-700 hover:text-brand-brown transition-colors"
             >
               <User className="h-6 w-6" />
               <div className="text-left">
