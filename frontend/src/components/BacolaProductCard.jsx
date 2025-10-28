@@ -67,21 +67,21 @@ const BacolaProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
       </div>
 
       <div className="p-4 md:p-5">
-        <div className="text-xs text-gray-500 mb-1">{product.category}</div>
+        <div className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">{product.category}</div>
 
         <h3 
-          className="text-sm font-semibold text-gray-900 mb-2 line-clamp-2 min-h-[40px] hover:text-[#2bbef9] cursor-pointer transition-colors"
+          className="text-base font-semibold text-gray-900 mb-3 line-clamp-2 min-h-[48px] hover:text-brand-brown cursor-pointer transition-colors leading-snug"
           onClick={handleProductClick}
         >
           {product.name}
         </h3>
 
-        <div className="flex items-center gap-1 mb-2">
+        <div className="flex items-center gap-1.5 mb-3">
           <div className="flex">
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
-                className={`h-3 w-3 ${
+                className={`h-4 w-4 ${
                   i < Math.floor(product.rating)
                     ? 'fill-yellow-400 text-yellow-400'
                     : 'fill-gray-200 text-gray-200'
@@ -89,41 +89,41 @@ const BacolaProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
               />
             ))}
           </div>
-          <span className="text-xs text-gray-500">({product.reviews})</span>
+          <span className="text-xs text-gray-600 font-medium">({product.reviews})</span>
         </div>
 
-        <div className="flex items-baseline gap-2 mb-3">
+        <div className="flex items-baseline gap-2 mb-4">
           {product.originalPrice && (
-            <span className="text-xs text-gray-400 line-through">
+            <span className="text-sm text-gray-400 line-through">
               ₹{product.originalPrice}
             </span>
           )}
-          <span className="text-lg font-bold text-gray-900">
+          <span className="text-xl font-bold text-brand-brown">
             ₹{product.price}
           </span>
         </div>
 
         <div className="flex items-center gap-2">
-          <div className="flex items-center border border-gray-300 rounded-md overflow-hidden">
+          <div className="flex items-center border-2 border-gray-300 rounded-lg overflow-hidden bg-white">
             <button
-              onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="px-2.5 py-1.5 hover:bg-gray-100 transition-colors text-gray-600 font-semibold"
+              onClick={(e) => { e.stopPropagation(); setQuantity(Math.max(1, quantity - 1)); }}
+              className="px-3 py-2 hover:bg-gray-100 transition-colors text-gray-700 font-bold text-lg"
             >
               -
             </button>
-            <span className="px-3 py-1.5 min-w-[35px] text-center font-semibold text-sm border-x border-gray-300">
+            <span className="px-4 py-2 min-w-[45px] text-center font-bold text-base border-x-2 border-gray-300">
               {quantity}
             </span>
             <button
-              onClick={() => setQuantity(quantity + 1)}
-              className="px-2.5 py-1.5 hover:bg-gray-100 transition-colors text-gray-600 font-semibold"
+              onClick={(e) => { e.stopPropagation(); setQuantity(quantity + 1); }}
+              className="px-3 py-2 hover:bg-gray-100 transition-colors text-gray-700 font-bold text-lg"
             >
               +
             </button>
           </div>
 
           <button
-            onClick={() => onAddToCart?.(product, quantity)}
+            onClick={(e) => { e.stopPropagation(); onAddToCart?.(product, quantity); }}
             className="flex-1 flex items-center justify-center gap-2 bg-[#2bbef9] hover:bg-[#1da5db] text-white py-2 px-3 rounded-md font-semibold text-sm transition-colors"
           >
             <ShoppingCart className="h-4 w-4" />
