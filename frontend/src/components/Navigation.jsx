@@ -57,10 +57,10 @@ const Navigation = () => {
           {/* Navigation Links */}
           <nav className="flex items-center flex-1 ml-8">
             {navLinks.map((link, index) => (
-              <a
+              <button
                 key={index}
-                href={link.href}
-                className={`flex items-center gap-1 px-4 py-4 text-sm font-medium transition-colors relative ${
+                onClick={() => link.href !== '#' && navigate(link.href)}
+                className={`flex items-center gap-1 px-4 py-3 text-sm font-medium transition-colors relative ${
                   link.active
                     ? 'text-brand-brown'
                     : 'text-gray-700 hover:text-brand-brown'
@@ -71,7 +71,7 @@ const Navigation = () => {
                 {link.active && (
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-brown"></div>
                 )}
-              </a>
+              </button>
             ))}
           </nav>
 
