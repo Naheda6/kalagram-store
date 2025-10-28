@@ -85,7 +85,7 @@ const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
                 <span className="text-sm font-bold">₹0.00</span>
               </div>
               {cartCount > 0 && (
-                <span className="bg-white text-[#2bbef9] text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                <span className="bg-white text-brand-brown text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
                   {cartCount}
                 </span>
               )}
