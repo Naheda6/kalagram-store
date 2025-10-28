@@ -57,14 +57,14 @@ const Navigation = () => {
                 href={link.href}
                 className={`flex items-center gap-1 px-4 py-4 text-sm font-medium transition-colors relative ${
                   link.active
-                    ? 'text-[#2bbef9]'
-                    : 'text-gray-700 hover:text-[#2bbef9]'
+                    ? 'text-brand-brown'
+                    : 'text-gray-700 hover:text-brand-brown'
                 }`}
               >
                 <span>{link.name}</span>
                 {link.hasDropdown && <ChevronDown className="h-3.5 w-3.5" />}
                 {link.active && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2bbef9]"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-brown"></div>
                 )}
               </a>
             ))}
@@ -72,9 +72,9 @@ const Navigation = () => {
 
           {/* Special Offers */}
           <div className="flex items-center gap-2 text-sm">
-            <Zap className="h-4 w-4 text-orange-500" />
+            <Zap className="h-4 w-4 text-brand-gold" />
             <span className="text-gray-700">
-              <span className="font-bold text-orange-500">Special Offer:</span> Get <span className="font-bold">30% Off</span>
+              <span className="font-bold text-brand-gold">Special Offer:</span> Get <span className="font-bold">30% Off</span>
             </span>
           </div>
         </div>
