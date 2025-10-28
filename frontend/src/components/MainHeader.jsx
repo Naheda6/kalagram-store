@@ -68,7 +68,7 @@ const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
             </button>
 
             {/* Wishlist */}
-            <button className="relative p-2 hover:text-[#2bbef9] transition-colors hidden md:block">
+            <button className="relative p-2 hover:text-brand-brown transition-colors hidden md:block">
               <Heart className="h-6 w-6" />
               {wishlistCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">
