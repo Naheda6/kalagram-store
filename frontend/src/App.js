@@ -185,6 +185,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/category/:slug" element={<CategoryPage />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" richColors />
