@@ -54,7 +54,10 @@ const BacolaProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
       <div className="p-3 md:p-4">
         <div className="text-xs text-gray-500 mb-1">{product.category}</div>
 
-        <h3 className="text-sm font-semibold text-gray-900 mb-2 line-clamp-2 min-h-[40px] hover:text-[#2bbef9] cursor-pointer transition-colors">
+        <h3 
+          className="text-sm font-semibold text-gray-900 mb-2 line-clamp-2 min-h-[40px] hover:text-[#2bbef9] cursor-pointer transition-colors"
+          onClick={handleProductClick}
+        >
           {product.name}
         </h3>
 
