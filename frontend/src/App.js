@@ -187,6 +187,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/category/:slug" element={<CategoryPage />} />
+          <Route path="/auth" element={<AuthPage />} />
         </Routes>
       </BrowserRouter>
       <Toaster position="top-right" richColors />
