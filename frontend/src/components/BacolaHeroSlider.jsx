@@ -21,7 +21,7 @@ const BacolaHeroSlider = () => {
   };
 
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] bg-gradient-to-br from-blue-50 to-purple-50 overflow-hidden group rounded-xl">
+    <div className="relative w-full h-[280px] md:h-[350px] bg-gradient-to-br from-brand-cream to-white overflow-hidden group rounded-lg shadow-sm">
       {heroSlides.map((slide, index) => (
         <div
           key={slide.id}
@@ -29,25 +29,25 @@ const BacolaHeroSlider = () => {
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <div className="grid md:grid-cols-2 h-full items-center container mx-auto px-8">
+          <div className="grid md:grid-cols-2 h-full items-center container mx-auto px-6">
             {/* Content */}
-            <div className="space-y-4 z-10">
-              <div className="inline-block bg-[#ff6b6b] text-white px-4 py-2 rounded-full text-sm font-bold">
+            <div className="space-y-3 z-10">
+              <div className="inline-block bg-red-500 text-white px-3 py-1 rounded-md text-xs font-bold">
                 {slide.discount}
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-gray-900 leading-tight">
                 {slide.title}
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-700 font-medium">
+              <p className="text-base md:text-lg text-gray-700">
                 {slide.subtitle}
               </p>
               
-              <p className="text-gray-600">{slide.description}</p>
+              <p className="text-sm text-gray-600">{slide.description}</p>
               
               <div className="flex items-baseline gap-2">
-                <span className="text-gray-600">Starting at</span>
+                <span className="text-sm text-gray-600">Starting at</span>
                 <span className="text-3xl md:text-4xl font-black text-[#2bbef9]">
                   {slide.priceFrom}
                 </span>
