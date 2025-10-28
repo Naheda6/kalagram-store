@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ShoppingCart, Heart, User, Search, MapPin, ChevronDown } from 'lucide-react';
 
 const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white py-4 border-b border-gray-100">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 cursor-pointer" onClick={() => navigate('/')}>
             <h1 className="text-2xl md:text-3xl font-black text-[#233a95]">
               Kalagura Gampa
             </h1>
