@@ -3,11 +3,11 @@ import { MapPin, ChevronDown, Phone } from 'lucide-react';
 
 const TopBar = () => {
   return (
-    <div className="bg-[#233a95] text-white py-2.5 text-sm hidden md:block">
+    <div className="bg-brand-brown text-brand-cream py-2.5 text-sm hidden md:block">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <span className="text-xs">Welcome to Kalagura Gampa online eCommerce store.</span>
+            <span className="text-xs font-medium">Welcome to Kalagura Gampa online eCommerce store.</span>
           </div>
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2 cursor-pointer hover:opacity-80 text-xs">
