@@ -78,7 +78,7 @@ const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
             </button>
 
             {/* Cart */}
-            <button className="flex items-center gap-3 px-4 py-2.5 bg-[#2bbef9] hover:bg-[#1da5db] text-white rounded-md transition-colors shadow-sm">
+            <button className="flex items-center gap-3 px-4 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-white rounded-md transition-colors shadow-sm">
               <ShoppingCart className="h-5 w-5" />
               <div className="hidden md:flex flex-col items-start">
                 <span className="text-[10px] opacity-90">My Cart</span>
