@@ -10,23 +10,35 @@ const BacolaProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
     navigate(`/product/${product.id}`);
   };
 
+  // Badge color mapping
+  const getBadgeColor = (badge) => {
+    const colors = {
+      'Best Seller': 'bg-brand-gold text-white',
+      'Organic': 'bg-green-600 text-white',
+      'Recommended': 'bg-brand-tan text-white',
+      'Low GI': 'bg-blue-600 text-white',
+      'New': 'bg-purple-600 text-white'
+    };
+    return colors[badge] || 'bg-brand-brown text-white';
+  };
+
   return (
-    <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 group relative">
+    <div className="bg-white border-2 border-gray-100 rounded-xl overflow-hidden hover:shadow-2xl hover:border-brand-tan transition-all duration-300 group relative">
       <div 
-        className="relative p-4 bg-white aspect-square flex items-center justify-center cursor-pointer"
+        className="relative p-6 bg-gray-50 aspect-square flex items-center justify-center cursor-pointer"
         onClick={handleProductClick}
       >
         {product.discount > 0 && (
-          <div className="absolute top-2 left-2 z-10">
-            <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
-              {product.discount}%
+          <div className="absolute top-3 left-3 z-10">
+            <span className="bg-red-500 text-white text-sm font-bold px-3 py-1.5 rounded-lg shadow-md">
+              {product.discount}% OFF
             </span>
           </div>
         )}
 
         {product.badge && (
-          <div className="absolute top-2 right-2 z-10">
-            <span className="bg-[#2bbef9] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
+          <div className="absolute top-3 right-3 z-10">
+            <span className={`${getBadgeColor(product.badge)} text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide shadow-md`}>
               {product.badge}
             </span>
           </div>
@@ -35,26 +47,26 @@ const BacolaProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-contain mix-blend-darken"
+          className="w-full h-full object-contain"
         />
 
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100">
           <button
-            onClick={() => onAddToWishlist?.(product)}
-            className="bg-white hover:bg-[#2bbef9] hover:text-white p-2.5 rounded-full shadow-lg transition-all"
+            onClick={(e) => { e.stopPropagation(); onAddToWishlist?.(product); }}
+            className="bg-white hover:bg-brand-brown hover:text-white p-3 rounded-full shadow-xl transition-all"
           >
-            <Heart className="h-4 w-4" />
+            <Heart className="h-5 w-5" />
           </button>
           <button 
             onClick={handleProductClick}
-            className="bg-white hover:bg-[#2bbef9] hover:text-white p-2.5 rounded-full shadow-lg transition-all"
+            className="bg-white hover:bg-brand-brown hover:text-white p-3 rounded-full shadow-xl transition-all"
           >
-            <Eye className="h-4 w-4" />
+            <Eye className="h-5 w-5" />
           </button>
         </div>
       </div>
 
-      <div className="p-3 md:p-4">
+      <div className="p-4 md:p-5">
         <div className="text-xs text-gray-500 mb-1">{product.category}</div>
 
         <h3 
