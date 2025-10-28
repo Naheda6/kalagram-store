@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { Heart, ShoppingCart, Eye, Star } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const BacolaProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
   const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
+
+  const handleProductClick = () => {
+    navigate(`/product/${product.id}`);
+  };
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 group relative">
-      <div className="relative p-4 bg-white aspect-square flex items-center justify-center">
+      <div 
+        className="relative p-4 bg-white aspect-square flex items-center justify-center cursor-pointer"
+        onClick={handleProductClick}
+      >
         {product.discount > 0 && (
           <div className="absolute top-2 left-2 z-10">
             <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
