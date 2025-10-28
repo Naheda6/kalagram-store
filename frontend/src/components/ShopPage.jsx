@@ -219,13 +219,13 @@ const ShopPage = () => {
       <BacolaHeader cartCount={cartCount} wishlistCount={wishlistCount} />
       
       {/* Hero Banner */}
-      <div className="bg-gradient-to-r from-brand-brown to-brand-brown-dark text-white py-16 md:py-20">
+      <div className="bg-gradient-to-r from-brand-brown to-brand-brown-dark text-white py-8 md:py-12">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl font-display font-bold mb-2">
             Shop All Products
           </h1>
-          <p className="text-lg md:text-xl text-brand-cream max-w-2xl mx-auto">
-            Explore our complete collection of natural and organic products from village farms
+          <p className="text-sm md:text-base text-brand-cream">
+            Explore our complete collection of natural and organic products
           </p>
         </div>
       </div>
