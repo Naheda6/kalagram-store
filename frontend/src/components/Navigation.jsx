@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Menu, ChevronDown, ChevronRight, Zap } from 'lucide-react';
 import { categories } from '../mockData';
 
 const Navigation = () => {
   const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navLinks = [
-    { name: 'Home', href: '#', active: true },
-    { name: 'Shop', href: '#', hasDropdown: true },
-    { name: 'Personal Care', href: '#' },
-    { name: 'Cold Pressed Oils', href: '#' },
-    { name: 'Rice & Flours', href: '#' },
+    { name: 'Home', href: '/', active: true },
+    { name: 'Shop', href: '/shop', hasDropdown: false },
+    { name: 'Personal Care', href: '/category/personal-hair-care' },
+    { name: 'Cold Pressed Oils', href: '/category/cold-pressed-oils' },
+    { name: 'Rice & Flours', href: '/category/rice-flours' },
     { name: 'Blog', href: '#' },
     { name: 'Contact', href: '#' },
   ];
@@ -23,10 +25,10 @@ const Navigation = () => {
           <div className="relative">
             <button
               onClick={() => setCategoriesOpen(!categoriesOpen)}
-              className="flex items-center gap-3 px-6 py-4 bg-brand-tan hover:bg-brand-gold text-white font-bold transition-colors rounded-sm"
+              className="flex items-center gap-3 px-6 py-3 bg-brand-tan hover:bg-brand-gold text-white font-semibold transition-colors rounded-sm"
             >
               <Menu className="h-5 w-5" />
-              <span className="text-sm uppercase font-display">Browse All Categories</span>
+              <span className="text-sm">Browse All Categories</span>
               <ChevronDown className="h-4 w-4" />
             </button>
 
@@ -34,16 +36,19 @@ const Navigation = () => {
             {categoriesOpen && (
               <div className="absolute top-full left-0 w-72 bg-white shadow-2xl z-50 border border-gray-100 mt-1">
                 {categories.map((category) => (
-                  <a
+                  <button
                     key={category.id}
-                    href="#"
-                    className="flex items-center justify-between px-5 py-3 hover:bg-brand-cream border-b border-gray-50 transition-colors group"
+                    onClick={() => {
+                      navigate(`/category/${category.slug}`);
+                      setCategoriesOpen(false);
+                    }}
+                    className="w-full flex items-center justify-between px-5 py-3 hover:bg-brand-cream border-b border-gray-50 transition-colors group text-left"
                   >
                     <span className="text-sm text-gray-700 group-hover:text-brand-brown font-medium">
                       {category.name}
                     </span>
                     <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-brand-brown" />
-                  </a>
+                  </button>
                 ))}
               </div>
             )}
