@@ -23,10 +23,10 @@ const Navigation = () => {
           <div className="relative">
             <button
               onClick={() => setCategoriesOpen(!categoriesOpen)}
-              className="flex items-center gap-3 px-6 py-4 bg-[#fdc040] hover:bg-[#fcb827] text-gray-900 font-bold transition-colors rounded-sm"
+              className="flex items-center gap-3 px-6 py-4 bg-brand-tan hover:bg-brand-gold text-white font-bold transition-colors rounded-sm"
             >
               <Menu className="h-5 w-5" />
-              <span className="text-sm uppercase">Browse All Categories</span>
+              <span className="text-sm uppercase font-display">Browse All Categories</span>
               <ChevronDown className="h-4 w-4" />
             </button>
 
@@ -37,12 +37,12 @@ const Navigation = () => {
                   <a
                     key={category.id}
                     href="#"
-                    className="flex items-center justify-between px-5 py-3 hover:bg-gray-50 border-b border-gray-50 transition-colors group"
+                    className="flex items-center justify-between px-5 py-3 hover:bg-brand-cream border-b border-gray-50 transition-colors group"
                   >
-                    <span className="text-sm text-gray-700 group-hover:text-[#2bbef9] font-medium">
+                    <span className="text-sm text-gray-700 group-hover:text-brand-brown font-medium">
                       {category.name}
                     </span>
-                    <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-[#2bbef9]" />
+                    <ChevronRight className="h-4 w-4 text-gray-400 group-hover:text-brand-brown" />
                   </a>
                 ))}
               </div>
