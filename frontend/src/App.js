@@ -11,8 +11,9 @@ import BacolaProductCard from "./components/BacolaProductCard";
 import PromoBanner from "./components/PromoBanner";
 import Footer from "./components/Footer";
 import MobileBottomNav from "./components/MobileBottomNav";
+import HotProductWeek from "./components/HotProductWeek";
 import { products } from "./mockData";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, TrendingUp } from "lucide-react";
 
 const Home = () => {
   const [cartCount, setCartCount] = useState(0);
