@@ -70,9 +70,31 @@ export const products = [
     rating: 4.9,
     reviews: 38,
     image: 'https://kalaguragampa.com/media/catalog/product/cache/631a6e8f8ba77a1f8e669d028c5146f3/H/e/Hennaindigo-3_2nd.jpg',
+    images: [
+      'https://kalaguragampa.com/media/catalog/product/cache/631a6e8f8ba77a1f8e669d028c5146f3/H/e/Hennaindigo-3_2nd.jpg',
+      'https://kalaguragampa.com/media/catalog/product/cache/631a6e8f8ba77a1f8e669d028c5146f3/H/e/Hennaindigo-2_2nd.jpg'
+    ],
     stock: 'In Stock',
     badge: 'Best Seller',
-    weight: '250gm + 250gm'
+    weight: '250gm + 250gm',
+    description: 'Premium quality natural henna and indigo powder combo for natural hair coloring. 100% pure and chemical-free. Perfect for achieving dark brown to black hair color naturally.',
+    features: [
+      '100% Natural & Chemical-Free',
+      'No Ammonia, No PPD',
+      'Suitable for all hair types',
+      'Long-lasting color',
+      'Nourishes hair & scalp'
+    ],
+    specifications: {
+      'Brand': 'Kalagura Gampa',
+      'Item Form': 'Powder',
+      'Net Weight': '500 Grams (250gm each)',
+      'Ingredients': 'Pure Henna Leaves, Pure Indigo Leaves',
+      'Shelf Life': '24 Months',
+      'Country of Origin': 'India'
+    },
+    howToUse: 'Mix henna powder with warm water to make a paste. Apply to hair and leave for 2-3 hours. Rinse thoroughly. Next day, mix indigo powder with warm water and apply. Leave for 1-2 hours and rinse.',
+    sku: 'KG-HI-500'
   },
   {
     id: 2,
