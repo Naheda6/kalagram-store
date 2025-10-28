@@ -173,7 +173,6 @@ const Home = () => {
 
       <Footer />
       <MobileBottomNav cartCount={cartCount} wishlistCount={wishlistCount} />
-      <Toaster position="top-right" richColors />
     </div>
   );
 };
