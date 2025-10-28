@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import MobileBottomNav from "./components/MobileBottomNav";
 import HotProductWeek from "./components/HotProductWeek";
 import ProductDetail from "./components/ProductDetail";
+import CategoryPage from "./components/CategoryPage";
 import { products } from "./mockData";
 import { ChevronRight, TrendingUp } from "lucide-react";
 
