@@ -34,6 +34,8 @@ const Home = () => {
   const bestSellers = products.filter(p => p.badge === 'Best Seller').slice(0, 10);
   const newArrivals = products.slice(0, 10);
   const featuredProducts = products.filter(p => p.badge === 'Organic').slice(0, 10);
+  const trendingProducts = products.filter(p => p.isTrending).slice(0, 10);
+  const hotDealProduct = products.find(p => p.isHotDeal);
 
   return (
     <div className="min-h-screen bg-gray-50 pb-20 md:pb-0">
