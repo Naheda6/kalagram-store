@@ -68,7 +68,10 @@ const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
             </button>
 
             {/* Wishlist */}
-            <button className="relative p-2 hover:text-brand-brown transition-colors hidden md:block">
+            <button 
+              onClick={() => navigate('/wishlist')}
+              className="relative p-2 hover:text-brand-brown transition-colors hidden md:block"
+            >
               <Heart className="h-6 w-6" />
               {wishlistCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-bold">
@@ -78,7 +81,10 @@ const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
             </button>
 
             {/* Cart */}
-            <button className="flex items-center gap-3 px-4 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-white rounded-md transition-colors shadow-sm">
+            <button 
+              onClick={() => navigate('/cart')}
+              className="flex items-center gap-3 px-4 py-2.5 bg-brand-gold hover:bg-brand-gold-dark text-white rounded-md transition-colors shadow-sm"
+            >
               <ShoppingCart className="h-5 w-5" />
               <div className="hidden md:flex flex-col items-start">
                 <span className="text-[10px] opacity-90">My Cart</span>
