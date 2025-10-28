@@ -187,6 +187,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<ShopPage />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/category/:slug" element={<CategoryPage />} />
           <Route path="/auth" element={<AuthPage />} />
