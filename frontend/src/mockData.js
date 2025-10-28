@@ -437,3 +437,128 @@ export const banners = [
     ctaText: 'Shop Now'
   }
 ];
+
+
+// Product Reviews Data
+export const productReviews = {
+  1: [
+    {
+      id: 1,
+      userId: 1,
+      userName: 'Priya Sharma',
+      userAvatar: 'https://i.pravatar.cc/150?img=1',
+      rating: 5,
+      date: '2024-03-15',
+      verified: true,
+      title: 'Excellent quality henna and indigo!',
+      comment: 'Best combo pack I have used. Natural color, no chemicals. My hair feels soft and healthy. Highly recommended!',
+      helpful: 24
+    },
+    {
+      id: 2,
+      userId: 2,
+      userName: 'Rajesh Kumar',
+      userAvatar: 'https://i.pravatar.cc/150?img=12',
+      rating: 5,
+      date: '2024-03-10',
+      verified: true,
+      title: 'Great product',
+      comment: 'Pure and natural. Gives beautiful dark brown color. Worth the price.',
+      helpful: 18
+    }
+  ],
+  2: [
+    {
+      id: 3,
+      userId: 3,
+      userName: 'Anjali Reddy',
+      userAvatar: 'https://i.pravatar.cc/150?img=5',
+      rating: 5,
+      date: '2024-03-18',
+      verified: true,
+      title: 'Best groundnut oil!',
+      comment: 'Cold pressed and pure. The aroma is amazing. Using it for all my cooking needs now.',
+      helpful: 31
+    }
+  ],
+  5: [
+    {
+      id: 4,
+      userId: 4,
+      userName: 'Sneha Patel',
+      userAvatar: 'https://i.pravatar.cc/150?img=9',
+      rating: 5,
+      date: '2024-03-20',
+      verified: true,
+      title: 'Reduced my dark circles significantly',
+      comment: 'Been using for 3 weeks. My dark circles have reduced and skin looks more radiant. Authentic Kottakkal product!',
+      helpful: 42
+    }
+  ]
+};
+
+// Mock user data for authentication screens
+export const mockUsers = [
+  {
+    id: 1,
+    name: 'Priya Sharma',
+    email: 'priya@example.com',
+    password: 'demo123', // In real app, this would be hashed
+    phone: '+91 98765 43210',
+    avatar: 'https://i.pravatar.cc/150?img=1',
+    addresses: [
+      {
+        id: 1,
+        type: 'Home',
+        name: 'Priya Sharma',
+        phone: '+91 98765 43210',
+        addressLine1: 'Flat 302, Green Valley Apartments',
+        addressLine2: 'Near City Mall, Banjara Hills',
+        city: 'Hyderabad',
+        state: 'Telangana',
+        pincode: '500034',
+        isDefault: true
+      }
+    ],
+    orders: [
+      {
+        id: 'ORD-2024-001',
+        date: '2024-03-15',
+        status: 'Delivered',
+        total: 1250,
+        items: 3,
+        deliveredDate: '2024-03-18'
+      },
+      {
+        id: 'ORD-2024-002',
+        date: '2024-03-20',
+        status: 'In Transit',
+        total: 896,
+        items: 2,
+        estimatedDelivery: '2024-03-25'
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: 'Rajesh Kumar',
+    email: 'rajesh@example.com',
+    password: 'demo123',
+    phone: '+91 87654 32109',
+    avatar: 'https://i.pravatar.cc/150?img=12'
+  }
+];
+
+// Related products mapping
+export const relatedProducts = {
+  1: [3, 4, 6, 15], // For Henna & Indigo combo
+  2: [9, 10], // For Groundnut Oil
+  5: [1, 7], // For Kunkumadi Tailam
+};
+
+// People also bought mapping
+export const frequentlyBoughtTogether = {
+  1: [3, 4], // Henna combo with individual packs
+  2: [9, 14], // Groundnut oil with sesame oil and rice
+  5: [1, 7], // Kunkumadi with hair care products
+};
