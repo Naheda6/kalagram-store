@@ -79,19 +79,21 @@ const BacolaHeroSlider = () => {
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
       >
-        <ChevronRight className="h-6 w-6 text-gray-700" />
+        <ChevronRight className="h-5 w-5 text-gray-700" />
       </button>
 
-      {/* Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+      {/* Indicators */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
         {heroSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`h-2 rounded-full transition-all ${
-              index === currentSlide ? 'w-8 bg-[#2bbef9]' : 'w-2 bg-gray-400'
+            className={`w-2 h-2 rounded-full transition-all ${
+              index === currentSlide
+                ? 'bg-brand-brown w-6'
+                : 'bg-gray-300'
             }`}
           />
         ))}
