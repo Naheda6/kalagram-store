@@ -124,10 +124,10 @@ const BacolaProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
 
           <button
             onClick={(e) => { e.stopPropagation(); onAddToCart?.(product, quantity); }}
-            className="flex-1 flex items-center justify-center gap-2 bg-[#2bbef9] hover:bg-[#1da5db] text-white py-2 px-3 rounded-md font-semibold text-sm transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-white py-3 px-4 rounded-lg font-bold text-sm transition-colors shadow-md hover:shadow-lg"
           >
-            <ShoppingCart className="h-4 w-4" />
-            <span className="hidden sm:inline">Add</span>
+            <ShoppingCart className="h-5 w-5" />
+            <span className="hidden sm:inline">Add to Cart</span>
           </button>
         </div>
       </div>
