@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { categories } from '../mockData';
 import { ChevronRight } from 'lucide-react';
 
 const CategoryGrid = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="py-8 md:py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
@@ -19,6 +22,7 @@ const CategoryGrid = () => {
           {categories.map((category) => (
             <div
               key={category.id}
+              onClick={() => navigate(`/category/${category.slug}`)}
               className="group relative bg-white rounded-xl md:rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer border-2 border-gray-100 hover:border-emerald-200 transform hover:-translate-y-2"
             >
               <div className="aspect-square overflow-hidden relative">
