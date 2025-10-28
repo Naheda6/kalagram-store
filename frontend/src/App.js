@@ -50,6 +50,15 @@ const Home = () => {
 
         <ServiceBanner />
         
+        {/* Hot Product of the Week */}
+        {hotDealProduct && (
+          <HotProductWeek 
+            product={hotDealProduct}
+            onAddToCart={handleAddToCart}
+            onAddToWishlist={handleAddToWishlist}
+          />
+        )}
+        
         <section className="py-8 md:py-12 bg-white">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-6 md:mb-8">
