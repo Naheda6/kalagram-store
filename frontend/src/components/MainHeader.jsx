@@ -36,7 +36,7 @@ const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
                 placeholder="Search for products..."
                 className="flex-1 px-4 py-3 border border-gray-300 focus:outline-none focus:border-[#2bbef9] text-sm"
               />
-              <button className="px-6 bg-[#2bbef9] hover:bg-[#1da5db] text-white rounded-r-md transition-colors">
+              <button className="px-6 bg-brand-brown hover:bg-brand-brown-dark text-white rounded-r-md transition-colors">
                 <Search className="h-5 w-5" />
               </button>
             </div>
