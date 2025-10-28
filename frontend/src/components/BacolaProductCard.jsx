@@ -45,7 +45,10 @@ const BacolaProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
           >
             <Heart className="h-4 w-4" />
           </button>
-          <button className="bg-white hover:bg-[#2bbef9] hover:text-white p-2.5 rounded-full shadow-lg transition-all">
+          <button 
+            onClick={handleProductClick}
+            className="bg-white hover:bg-[#2bbef9] hover:text-white p-2.5 rounded-full shadow-lg transition-all"
+          >
             <Eye className="h-4 w-4" />
           </button>
         </div>
