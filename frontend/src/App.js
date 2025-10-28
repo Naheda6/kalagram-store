@@ -184,8 +184,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
         </Routes>
       </BrowserRouter>
+      <Toaster position="top-right" richColors />
     </div>
   );
 }
