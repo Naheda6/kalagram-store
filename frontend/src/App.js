@@ -17,6 +17,8 @@ import CategoryPage from "./components/CategoryPage";
 import AuthPage from "./components/AuthPage";
 import CartPage from "./components/CartPage";
 import ShopPage from "./components/ShopPage";
+import WishlistPage from "./components/WishlistPage";
+import CheckoutPage from "./components/CheckoutPage";
 import { products } from "./mockData";
 import { ChevronRight, TrendingUp } from "lucide-react";
 
