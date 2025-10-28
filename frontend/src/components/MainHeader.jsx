@@ -10,8 +10,13 @@ const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex-shrink-0 cursor-pointer" onClick={() => navigate('/')}>
-            <h1 className="text-2xl md:text-3xl font-black text-[#233a95]">
+          <div className="flex-shrink-0 cursor-pointer flex items-center gap-3" onClick={() => navigate('/')}>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_kalagram-store/artifacts/j339z1sf_image.png"
+              alt="Kalagura Gampa Logo"
+              className="h-12 w-12 md:h-14 md:w-14 object-contain"
+            />
+            <h1 className="text-xl md:text-2xl font-display font-bold text-brand-brown">
               Kalagura Gampa
             </h1>
           </div>
