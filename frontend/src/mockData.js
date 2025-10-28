@@ -101,14 +101,41 @@ export const products = [
     name: 'Ground Nut Oil (Peanut Oil)',
     category: 'Cold Pressed Oils',
     price: 396,
-    originalPrice: null,
-    discount: 0,
+    originalPrice: 549,
+    discount: 28,
     rating: 5.0,
     reviews: 15,
     image: 'https://kalaguragampa.com/media/catalog/product/cache/631a6e8f8ba77a1f8e669d028c5146f3/g/r/ground-nut-oil-2.jpg',
+    images: [
+      'https://kalaguragampa.com/media/catalog/product/cache/631a6e8f8ba77a1f8e669d028c5146f3/g/r/ground-nut-oil-2.jpg',
+      'https://kalaguragampa.com/media/catalog/product/cache/631a6e8f8ba77a1f8e669d028c5146f3/g/r/ground-nut-oil-1.jpg'
+    ],
     stock: 'In Stock',
     badge: 'Organic',
-    weight: '1 Liter'
+    weight: '1 Liter',
+    isHotDeal: true,
+    dealEndsAt: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days from now
+    dealProgress: 65, // 65% sold
+    description: 'Pure cold-pressed groundnut oil extracted from premium quality peanuts. Rich in Vitamin E and monounsaturated fats. Ideal for deep frying, cooking, and salad dressings.',
+    features: [
+      'Cold Pressed - No Heat Treatment',
+      'Rich in Vitamin E & Antioxidants',
+      'High Smoke Point - Perfect for Frying',
+      'No Preservatives or Additives',
+      'Traditional Wooden Press Method'
+    ],
+    specifications: {
+      'Brand': 'Kalagura Gampa',
+      'Type': 'Cold Pressed',
+      'Volume': '1 Liter',
+      'Ingredients': '100% Pure Groundnuts',
+      'Shelf Life': '6 Months',
+      'Storage': 'Store in cool, dry place',
+      'Country of Origin': 'India'
+    },
+    howToUse: 'Use for everyday cooking, deep frying, sautéing, or as a salad dressing. Store in a cool, dry place away from direct sunlight.',
+    sku: 'KG-GO-1L',
+    isTrending: true
   },
   {
     id: 3,
