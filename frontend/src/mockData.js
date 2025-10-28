@@ -175,9 +175,31 @@ export const products = [
     rating: 5.0,
     reviews: 21,
     image: 'https://kalaguragampa.com/media/catalog/product/cache/631a6e8f8ba77a1f8e669d028c5146f3/K/u/Kunkumadi-Tailam-3_2nd.jpg',
+    images: [
+      'https://kalaguragampa.com/media/catalog/product/cache/631a6e8f8ba77a1f8e669d028c5146f3/K/u/Kunkumadi-Tailam-3_2nd.jpg'
+    ],
     stock: 'In Stock',
     badge: 'Best Seller',
-    weight: '10ml'
+    weight: '10ml',
+    isTrending: true,
+    description: 'Authentic Ayurvedic Kunkumadi Tailam from Kottakkal Arya Vaidya Sala. A precious blend of saffron and rare herbs for radiant, glowing skin. Reduces blemishes, dark circles, and signs of aging.',
+    features: [
+      'Contains Pure Saffron (Kumkuma)',
+      'Reduces Dark Circles & Blemishes',
+      'Anti-Aging Properties',
+      'Improves Skin Complexion',
+      'Authentic Ayurvedic Formula'
+    ],
+    specifications: {
+      'Brand': 'Kottakkal Arya Vaidya Sala',
+      'Type': 'Face Oil',
+      'Volume': '10 ml',
+      'Key Ingredients': 'Saffron, Sandalwood, Turmeric, Vetiver',
+      'Shelf Life': '36 Months',
+      'Country of Origin': 'India'
+    },
+    howToUse: 'Apply 2-3 drops on clean face at night. Gently massage in circular motions. Can be used daily for best results.',
+    sku: 'KK-KT-10ML'
   },
   {
     id: 6,
