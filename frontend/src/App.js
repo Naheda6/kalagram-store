@@ -137,6 +137,37 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* Trending Products Section */}
+        {trendingProducts.length > 0 && (
+          <section className="py-8 md:py-12 bg-white">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center justify-between mb-6 md:mb-8">
+                <div className="flex items-center gap-3">
+                  <TrendingUp className="h-8 w-8 text-orange-500" />
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-black text-gray-900">Trending Products</h2>
+                    <p className="text-sm md:text-base text-gray-600 mt-1">Most popular items right now</p>
+                  </div>
+                </div>
+                <button className="text-[#2bbef9] hover:text-[#1da5db] font-semibold flex items-center gap-1 text-sm">
+                  <span className="hidden md:inline">View All</span>
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+                {trendingProducts.map((product) => (
+                  <BacolaProductCard
+                    key={product.id}
+                    product={product}
+                    onAddToCart={handleAddToCart}
+                    onAddToWishlist={handleAddToWishlist}
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
       </main>
 
       <Footer />
