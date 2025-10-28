@@ -65,6 +65,10 @@ module.exports = {
                                 '5': 'hsl(var(--chart-5))'
                         }
                 },
+                fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                },
                 keyframes: {
                         'accordion-down': {
                                 from: {
