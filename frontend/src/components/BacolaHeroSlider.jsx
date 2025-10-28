@@ -48,12 +48,12 @@ const BacolaHeroSlider = () => {
               
               <div className="flex items-baseline gap-2">
                 <span className="text-sm text-gray-600">Starting at</span>
-                <span className="text-3xl md:text-4xl font-black text-[#2bbef9]">
+                <span className="text-2xl md:text-3xl font-bold text-brand-brown">
                   {slide.priceFrom}
                 </span>
               </div>
               
-              <button className="bg-[#233a95] hover:bg-[#1a2d75] text-white px-8 py-4 rounded-full font-semibold text-lg transition-colors shadow-lg">
+              <button className="bg-brand-brown hover:bg-brand-brown-dark text-white px-6 py-2.5 rounded-lg font-semibold text-sm transition-colors shadow-md">
                 {slide.ctaText} →
               </button>
             </div>
@@ -63,7 +63,7 @@ const BacolaHeroSlider = () => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="max-w-full max-h-[450px] object-contain drop-shadow-2xl"
+                className="max-w-full max-h-[300px] object-contain"
               />
             </div>
           </div>
@@ -73,9 +73,9 @@ const BacolaHeroSlider = () => {
       {/* Navigation */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
       >
-        <ChevronLeft className="h-6 w-6 text-gray-700" />
+        <ChevronLeft className="h-5 w-5 text-gray-700" />
       </button>
       <button
         onClick={nextSlide}
