@@ -49,7 +49,7 @@ const Home = () => {
     <div className="min-h-screen bg-gray-50">
       <BacolaHeader cartCount={cartCount} wishlistCount={wishlistCount} />
       
-      <main className="pb-0">
+      <main className="pb-16 md:pb-0">
         {/* Hero Slider and Trending Products Side by Side */}
 {/* Hero Slider and Trending Products Side by Side */}
 <section className="py-4 md:py-6">
@@ -249,13 +249,16 @@ const Home = () => {
         )}
       </main>
 
-      <Footer style={{marginBottom: 0, paddingBottom: 0}} />
+      <Footer className="mb-16 md:mb-0" />
       <MobileBottomNav cartCount={cartCount} wishlistCount={wishlistCount} />
     </div>
   );
 };
 
 function App() {
+  const [cartCount, setCartCount] = useState(0);
+  const [wishlistCount, setWishlistCount] = useState(0);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -269,6 +272,7 @@ function App() {
           <Route path="/wishlist" element={<WishlistPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
+        <MobileBottomNav cartCount={cartCount} wishlistCount={wishlistCount} />
       </BrowserRouter>
       <Toaster position="top-right" richColors />
     </div>
