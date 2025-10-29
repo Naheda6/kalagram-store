@@ -52,18 +52,18 @@ const Home = () => {
       <main className="pb-16 md:pb-0">
         {/* Hero Slider and Trending Products Side by Side */}
 {/* Hero Slider and Trending Products Side by Side */}
-<section className="py-4 md:py-6">
+<section className="py-4 md:py-4">
   <div className="container mx-auto px-4">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-start">
       
       {/* Left: Hero Slider with Trending Products below */}
-      <div className="flex flex-col gap-3 md:gap-4">
+      <div className="flex flex-col gap-3 md:gap-2">
         <HeroSlider />
 
         {/* Trending Products under Hero Slider */}
 {trendingProducts.length > 0 && (
   <div className="bg-[#fffaf5] rounded-xl p-3 md:p-4 shadow-md border border-[#eadcc9]">
-    <div className="flex items-center justify-between mb-3">
+    <div className="flex items-center justify-between mb-1">
       <h2 className="text-base md:text-xl font-bold text-[#3C2A1A]">
         Trending <span className="text-[#7B4B24]">Products</span>
       </h2>
@@ -73,7 +73,7 @@ const Home = () => {
       </button>
     </div>
 
-    <div className="grid grid-cols-2 gap-2 md:gap-3">
+    <div className="grid grid-cols-2 gap-1 md:gap-1">
       {trendingProducts.slice(0, 2).map((product) => (
         <div
           key={product.id}
@@ -81,7 +81,7 @@ const Home = () => {
         >
           <div className="flex flex-col items-center">
             {/* Image */}
-            <div className="relative w-full h-[80px] md:h-[100px] overflow-hidden rounded-md mb-2">
+            <div className="relative w-full h-[50px] md:h-[50px] overflow-hidden rounded-md mb-1">
               <img
                 src={product.image}
                 alt={product.name}
@@ -250,7 +250,6 @@ const Home = () => {
       </main>
 
       <Footer className="mb-16 md:mb-0" />
-      <MobileBottomNav cartCount={cartCount} wishlistCount={wishlistCount} />
     </div>
   );
 };

@@ -412,7 +412,7 @@ const ProductDetail = () => {
         {frequentlyBoughtList.length > 0 && (
           <div className="bg-white rounded-lg shadow-sm p-4 md:p-8 mb-6">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Bought Together</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {frequentlyBoughtList.map((p) => (
                 <BacolaProductCard
                   key={p.id}
@@ -435,7 +435,7 @@ const ProductDetail = () => {
         {relatedProductsList.length > 0 && (
           <div className="bg-white rounded-lg shadow-sm p-4 md:p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Products</h2>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {relatedProductsList.map((p) => (
                 <BacolaProductCard
                   key={p.id}

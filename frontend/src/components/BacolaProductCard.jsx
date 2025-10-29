@@ -1,9 +1,15 @@
 import { ShoppingCart } from "lucide-react";
 import React from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 const BacolaProductCard = ({ product }) => {
+    const navigate = useNavigate();
+const handleProductClick = () => {
+    navigate(`/product/${product.id}`);
+  };
   return (
-    <div
+    <div onClick={handleProductClick} style={{ cursor: 'pointer' }}
   className="flex items-center justify-between w-full max-w-[420px] bg-white shadow-md rounded-2xl p-3 hover:shadow-lg transition-all duration-300"
 >
       {/* Left: Product Image */}
