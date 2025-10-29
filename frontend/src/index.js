@@ -9,6 +9,6 @@ root.render(
   <ThemeProvider>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
   </ThemeProvider>
 );
