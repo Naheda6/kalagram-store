@@ -34,7 +34,7 @@ const ProductDetail = () => {
           <h2 className="text-2xl font-bold mb-4">Product not found</h2>
           <button 
             onClick={() => navigate('/')}
-            className="text-[#2bbef9] hover:underline"
+            className="text-[#6A4A2B] hover:underline"
           >
             Return to Home
           </button>
@@ -91,9 +91,9 @@ const ProductDetail = () => {
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center gap-2 text-sm text-gray-600">
-            <button onClick={() => navigate('/')} className="hover:text-[#2bbef9]">Home</button>
+            <button onClick={() => navigate('/')} className="hover:text-[#6A4A2B]">Home</button>
             <ChevronRight className="h-4 w-4" />
-            <button onClick={() => navigate('/')} className="hover:text-[#2bbef9]">{product.category}</button>
+            <button onClick={() => navigate('/')} className="hover:text-[#6A4A2B]">{product.category}</button>
             <ChevronRight className="h-4 w-4" />
             <span className="text-gray-900 truncate max-w-xs">{product.name}</span>
           </div>
@@ -167,7 +167,7 @@ const ProductDetail = () => {
                 {product.originalPrice && (
                   <span className="text-xl text-gray-400 line-through">₹{product.originalPrice}</span>
                 )}
-                <span className="text-4xl font-black text-[#2bbef9]">₹{product.price}</span>
+                <span className="text-4xl font-black text-[#6A4A2B]">₹{product.price}</span>
                 {product.discount > 0 && (
                   <Badge className="bg-red-500 text-white text-lg px-3 py-1">
                     {product.discount}% OFF
@@ -236,7 +236,7 @@ const ProductDetail = () => {
                 </button>
                 <button
                   onClick={handleShare}
-                  className="p-4 border-2 border-gray-300 text-gray-600 hover:border-[#2bbef9] hover:text-[#2bbef9] rounded-lg transition-colors"
+                  className="p-4 border-2 border-gray-300 text-gray-600 hover:border-[#2bbef9] hover:text-[#6A4A2B] rounded-lg transition-colors"
                 >
                   <Share2 className="h-6 w-6" />
                 </button>
@@ -249,29 +249,28 @@ const ProductDetail = () => {
                 Buy Now
               </button>
 
-              {/* Trust Badges */}
-              <div className="grid grid-cols-3 gap-4 py-6 border-t border-b">
-                <div className="text-center">
-                  <Truck className="h-6 w-6 text-[#2bbef9] mx-auto mb-2" />
-                  <p className="text-xs font-semibold text-gray-700">Free Delivery</p>
-                  <p className="text-xs text-gray-500">Orders over ₹3500</p>
-                </div>
-                <div className="text-center">
-                  <RotateCcw className="h-6 w-6 text-[#2bbef9] mx-auto mb-2" />
-                  <p className="text-xs font-semibold text-gray-700">Easy Returns</p>
-                  <p className="text-xs text-gray-500">7 Days Return</p>
-                </div>
-                <div className="text-center">
-                  <Shield className="h-6 w-6 text-[#2bbef9] mx-auto mb-2" />
-                  <p className="text-xs font-semibold text-gray-700">100% Secure</p>
-                  <p className="text-xs text-gray-500">Safe Payment</p>
-                </div>
-              </div>
-
+              {/* Trust Badges (Warm Brown Theme) */}
+<div className="grid grid-cols-3 gap-4 py-6 border-t border-b">
+  <div className="text-center">
+    <Truck className="h-6 w-6 text-[#7B4B24] mx-auto mb-2" />
+    <p className="text-xs font-semibold text-gray-800">Free Delivery</p>
+    <p className="text-xs text-gray-500">Orders over ₹3500</p>
+  </div>
+  <div className="text-center">
+    <RotateCcw className="h-6 w-6 text-[#7B4B24] mx-auto mb-2" />
+    <p className="text-xs font-semibold text-gray-800">Easy Returns</p>
+    <p className="text-xs text-gray-500">7 Days Return</p>
+  </div>
+  <div className="text-center">
+    <Shield className="h-6 w-6 text-[#7B4B24] mx-auto mb-2" />
+    <p className="text-xs font-semibold text-gray-800">100% Secure</p>
+    <p className="text-xs text-gray-500">Safe Payment</p>
+  </div>
+</div>
               {/* Delivery Info */}
               <div className="mt-6 p-4 bg-blue-50 rounded-lg">
                 <div className="flex items-start gap-3 mb-3">
-                  <MapPin className="h-5 w-5 text-[#2bbef9] flex-shrink-0 mt-0.5" />
+                  <MapPin className="h-5 w-5 text-[#6A4A2B] flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-gray-900 mb-1">Delivery Options</p>
                     <p className="text-sm text-gray-700">Enter pincode to check delivery availability</p>
@@ -386,7 +385,7 @@ const ProductDetail = () => {
                           </div>
                           <h4 className="font-semibold text-gray-900 mb-2">{review.title}</h4>
                           <p className="text-gray-700 mb-3">{review.comment}</p>
-                          <button className="text-sm text-gray-600 hover:text-[#2bbef9]">
+                          <button className="text-sm text-gray-600 hover:text-[#6A4A2B]">
                             Helpful ({review.helpful})
                           </button>
                         </div>

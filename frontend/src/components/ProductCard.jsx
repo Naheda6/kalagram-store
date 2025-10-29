@@ -49,11 +49,11 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
         <div className="absolute top-1 right-1 md:top-3 md:right-3 hidden md:flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
           <button
             onClick={handleAddToWishlist}
-            className="bg-white hover:bg-emerald-600 hover:text-white p-2 rounded-full shadow-md transition-colors"
+            className="bg-white hover:bg-[#7B4B24] hover:text-white p-2 rounded-full shadow-md transition-colors"
           >
             <Heart className="h-4 w-4" />
           </button>
-          <button className="bg-white hover:bg-emerald-600 hover:text-white p-2 rounded-full shadow-md transition-colors">
+          <button className="bg-white hover:bg-[#7B4B24] hover:text-white p-2 rounded-full shadow-md transition-colors">
             <Eye className="h-4 w-4" />
           </button>
         </div>
@@ -72,7 +72,7 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
         <p className="text-[10px] md:text-xs text-gray-500 mb-1 md:mb-2 hidden md:block">{product.category}</p>
 
         {/* Product Name */}
-        <h3 className="font-medium text-gray-900 mb-1 md:mb-2 line-clamp-2 h-8 md:h-12 text-xs md:text-sm hover:text-emerald-600 transition-colors cursor-pointer">
+        <h3 className="font-medium text-gray-900 mb-1 md:mb-2 line-clamp-2 h-8 md:h-12 text-xs md:text-sm hover:text-[#7B4B24] transition-colors cursor-pointer">
           {product.name}
         </h3>
 
@@ -111,11 +111,10 @@ const ProductCard = ({ product, onAddToCart, onAddToWishlist }) => {
         {/* Add to Cart Button */}
         <Button
           onClick={handleAddToCart}
-          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs md:text-sm h-8 md:h-10 px-2"
+          className="w-full bg-[#7B4B24] hover:bg-[#5F391A] text-white font-medium text-xs md:text-sm h-8 md:h-10 px-2"
           disabled={product.stock !== 'In Stock'}
         >
           <ShoppingCart className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />
-          <span className="hidden sm:inline">Add to cart</span>
           <span className="sm:hidden">Add</span>
         </Button>
       </div>

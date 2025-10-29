@@ -27,7 +27,7 @@ code {
         --card-foreground: 0 0% 3.9%;
         --popover: 0 0% 100%;
         --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
+        --primary: 28 40% 35%; /* equivalent to #7B4B24 */
         --primary-foreground: 0 0% 98%;
         --secondary: 0 0% 96.1%;
         --secondary-foreground: 0 0% 9%;
@@ -40,9 +40,10 @@ code {
         --border: 0 0% 89.8%;
         --input: 0 0% 89.8%;
         --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
+        --chart-1: 28 45% 35%;
+--chart-2: 28 55% 45%;
+--chart-3: 28 65% 55%;
+--accent-foreground: 28 40% 25%;
         --chart-4: 43 74% 66%;
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
@@ -114,4 +115,19 @@ code {
         border-top-color: inherit;
         border-bottom-color: inherit;
     }
+}
+/* FORCE brown color on trust badge icons - NUCLEAR OPTION */
+[style*="color: rgb(123, 75, 36)"] svg,
+[color="#7B4B24"] svg,
+svg[color="#7B4B24"] {
+  color: #7B4B24 !important;
+  stroke: #7B4B24 !important;
+}
+
+svg[color="#7B4B24"] path,
+svg[color="#7B4B24"] line,
+svg[color="#7B4B24"] polyline,
+svg[color="#7B4B24"] circle,
+svg[color="#7B4B24"] rect {
+  stroke: #7B4B24 !important;
 }

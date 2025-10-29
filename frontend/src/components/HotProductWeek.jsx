@@ -15,7 +15,6 @@ const HotProductWeek = ({ product, onAddToCart, onAddToWishlist }) => {
 
     const calculateTimeLeft = () => {
       const difference = new Date(product.dealEndsAt) - new Date();
-      
       if (difference > 0) {
         setTimeLeft({
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -28,48 +27,46 @@ const HotProductWeek = ({ product, onAddToCart, onAddToWishlist }) => {
 
     calculateTimeLeft();
     const timer = setInterval(calculateTimeLeft, 1000);
-
     return () => clearInterval(timer);
   }, [product.dealEndsAt]);
 
   if (!product.isHotDeal) return null;
 
   return (
-    <section className="py-6 md:py-8 bg-white">
+    <section className="py-6 md:py-8 bg-white border border-[#d9c9b0] rounded-2xl">
       <div className="container mx-auto px-4">
-        {/* Header */}
+        {/* Header with View All */}
         <div className="flex items-center justify-between mb-4">
           <div>
             <h2 className="text-xl md:text-2xl font-bold text-gray-900">
-              Hot Product for <span className="text-red-500">This Week</span>
+              Hot Product for{' '}
+              <span className="text-[#7B4B24]">This Week</span>
             </h2>
-            <p className="text-xs md:text-sm text-gray-600 mt-1">
+            <p className="text-xs md:text-sm text-gray-600 mt-1 mb-1">
               Special discount just for this week
             </p>
           </div>
-          <button className="hidden md:flex items-center gap-2 text-gray-600 hover:text-brand-brown transition-colors text-sm font-medium">
+          <button className="hidden md:flex items-center gap-2 text-[#7B4B24] hover:text-[#5F391A] transition-colors text-sm font-semibold underline-offset-4 hover:underline">
             View All
             <ArrowRight className="h-4 w-4" />
           </button>
         </div>
 
         {/* Hot Deal Card */}
-        <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-lg p-4 md:p-6">
+        <div className="bg-gradient-to-br from-[#f7f1ea] via-[#f9f6f1] to-[#f4eee6] rounded-2xl p-4 md:p-6 shadow-soft">
           <div className="grid md:grid-cols-2 gap-4 md:gap-6 items-center">
             {/* Left: Product Image */}
-            <div className="relative">
-              {/* Discount Badge */}
-              <div className="absolute -top-2 -left-2 md:-top-3 md:-left-3 w-12 h-12 md:w-16 md:h-16 bg-red-500 rounded-full flex items-center justify-center shadow-lg z-10">
-                <span className="text-white font-black text-sm md:text-lg">{product.discount}%</span>
+            <div className="relative bg-white rounded-xl p-4 md:p-6 flex items-center justify-center shadow-sm overflow-hidden">
+              {/* ✅ Discount Badge (top-right corner) */}
+              <div className="absolute top-3 right-3 bg-[#7B4B24] text-white font-bold text-xs md:text-sm px-3 py-1.5 rounded-full shadow-md z-10">
+                {product.discount}% OFF
               </div>
-              
-              <div className="bg-white rounded-lg p-4 md:p-6 flex items-center justify-center">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full max-w-[200px] md:max-w-xs h-auto object-contain"
-                />
-              </div>
+
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full max-w-[180px] md:max-w-[230px] h-auto object-contain"
+              />
             </div>
 
             {/* Right: Product Details */}
@@ -81,7 +78,7 @@ const HotProductWeek = ({ product, onAddToCart, onAddToWishlist }) => {
                     ₹{product.originalPrice}
                   </span>
                 )}
-                <span className="text-2xl md:text-3xl font-black text-red-500">
+                <span className="text-2xl md:text-3xl font-black text-[#7B4B24]">
                   ₹{product.price}
                 </span>
               </div>
@@ -93,18 +90,23 @@ const HotProductWeek = ({ product, onAddToCart, onAddToWishlist }) => {
 
               {/* Stock & Weight */}
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-xs font-medium text-gray-600">{product.weight}</span>
-                <span className="text-xs font-semibold text-green-600">{product.stock}</span>
+                <span className="text-xs font-medium text-gray-600">
+                  {product.weight}
+                </span>
+                <span className="text-xs font-semibold text-green-600">
+                  {product.stock}
+                </span>
               </div>
 
               {/* Progress Bar */}
               <div className="mb-4">
-                <div className="relative h-6 bg-gray-200 rounded-full overflow-hidden">
-                  <div 
+                <div className="relative h-5 md:h-6 bg-gray-200 rounded-full overflow-hidden">
+                  <div
                     className="absolute inset-0 rounded-full transition-all duration-500"
                     style={{
                       width: `${product.dealProgress}%`,
-                      background: 'linear-gradient(90deg, #ef4444 0%, #f97316 35%, #fbbf24 65%, #e5e7eb 100%)'
+                      background:
+                        'linear-gradient(90deg, #7B4B24 0%, #C68B59 50%, #E1C299 100%)'
                     }}
                   />
                 </div>
@@ -115,44 +117,35 @@ const HotProductWeek = ({ product, onAddToCart, onAddToWishlist }) => {
 
               {/* Countdown Timer */}
               <div className="mb-4">
-                <div className="flex items-center gap-2">
-                  {/* Timer Boxes */}
-                  <div className="flex gap-1.5">
-                    <div className="bg-white rounded px-2 py-1.5 min-w-[45px] text-center border">
-                      <div className="text-lg md:text-xl font-black text-gray-900">
-                        {String(timeLeft.days).padStart(2, '0')}
+                <div className="flex gap-2 text-center text-sm">
+                  {['Days', 'Hrs', 'Mins', 'Secs'].map((label, i) => {
+                    const values = [
+                      timeLeft.days,
+                      timeLeft.hours,
+                      timeLeft.minutes,
+                      timeLeft.seconds
+                    ];
+                    return (
+                      <div
+                        key={label}
+                        className="bg-white border border-[#e7d7c2] rounded-lg px-2 py-1 shadow-sm min-w-[45px]"
+                      >
+                        <div className="font-bold text-gray-900">
+                          {String(values[i]).padStart(2, '0')}
+                        </div>
+                        <div className="text-[10px] text-gray-500">
+                          {label}
+                        </div>
                       </div>
-                      <div className="text-[10px] text-gray-500">Days</div>
-                    </div>
-                    <span className="text-lg md:text-xl font-bold text-gray-400">:</span>
-                    <div className="bg-white rounded px-2 py-1.5 min-w-[45px] text-center border">
-                      <div className="text-lg md:text-xl font-black text-gray-900">
-                        {String(timeLeft.hours).padStart(2, '0')}
-                      </div>
-                      <div className="text-[10px] text-gray-500">Hrs</div>
-                    </div>
-                    <span className="text-lg md:text-xl font-bold text-gray-400">:</span>
-                    <div className="bg-white rounded px-2 py-1.5 min-w-[45px] text-center border">
-                      <div className="text-lg md:text-xl font-black text-gray-900">
-                        {String(timeLeft.minutes).padStart(2, '0')}
-                      </div>
-                      <div className="text-[10px] text-gray-500">Mins</div>
-                    </div>
-                    <span className="text-lg md:text-xl font-bold text-gray-400">:</span>
-                    <div className="bg-white rounded px-2 py-1.5 min-w-[45px] text-center border">
-                      <div className="text-lg md:text-xl font-black text-gray-900">
-                        {String(timeLeft.seconds).padStart(2, '0')}
-                      </div>
-                      <div className="text-[10px] text-gray-500">Secs</div>
-                    </div>
-                  </div>
+                    );
+                  })}
                 </div>
               </div>
 
               {/* Add to Cart Button */}
               <button
                 onClick={() => onAddToCart(product, 1)}
-                className="w-full bg-brand-brown hover:bg-brand-brown-dark text-white font-bold py-3 px-4 rounded-lg transition-colors text-sm"
+                className="w-full bg-[#7B4B24] hover:bg-[#5F391A] text-white font-bold py-3 px-4 rounded-lg transition-colors text-sm shadow-md"
               >
                 Add to Cart
               </button>

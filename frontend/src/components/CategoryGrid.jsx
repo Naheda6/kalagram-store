@@ -43,7 +43,7 @@ const CategoryGrid = () => {
                     <span className="text-white/90 text-xs md:text-sm font-semibold bg-white/20 backdrop-blur-sm px-2 py-0.5 md:px-3 md:py-1 rounded-full">
                       {category.itemCount} Items
                     </span>
-                    <div className="bg-emerald-500 p-1.5 md:p-2 rounded-full shadow-lg group-hover:bg-emerald-600 transition-colors">
+                    <div className="bg-[#9B6B3F] p-1.5 md:p-2 rounded-full shadow-lg group-hover:bg-[#7B4B24] transition-colors">
                       <ChevronRight className="h-3 w-3 md:h-4 md:w-4 text-white group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>

@@ -1,119 +1,120 @@
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
+/* Fix for Product Card Overlapping */
+
+/* Ensure proper grid spacing and prevent overlap */
+.grid {
+  display: grid;
+  gap: 1.5rem;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
+/* Fix for product cards that might have overflow */
+.grid > * {
+  min-width: 0;
+  overflow: hidden;
 }
 
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #10b981, #059669);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #059669, #047857);
-}
-
-/* Prevent layout shift */
-* {
-    box-sizing: border-box;
-}
-
-/* Smooth transitions for interactive elements */
-button, a {
-    transition: all 0.3s ease-in-out;
-}
-
-/* Image loading optimization */
+/* Ensure product images don't overflow their containers */
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Custom animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Fix for cards with absolute positioning or borders */
+[class*="border"],
+[class*="rounded"] {
+  box-sizing: border-box;
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* Increase spacing in product grids specifically */
+.grid.grid-cols-2,
+.grid.grid-cols-3,
+.grid.grid-cols-4,
+.grid.grid-cols-5 {
+  gap: 1.5rem;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+@media (max-width: 768px) {
+  .grid.grid-cols-2,
+  .grid.grid-cols-3,
+  .grid.grid-cols-4,
+  .grid.grid-cols-5 {
+    gap: 1rem;
+  }
 }
 
-@keyframes shimmer {
-    0% {
-        background-position: -1000px 0;
-    }
-    100% {
-        background-position: 1000px 0;
-    }
+/* Prevent horizontal scrolling - FIXED */
+* {
+  box-sizing: border-box;
 }
 
-.animate-fadeIn {
-    animation: fadeIn 0.8s ease-out;
+html {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
-.animate-slideIn {
-    animation: slideIn 0.6s ease-out;
+body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh;
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
 }
 
-.animate-bounce {
-    animation: bounce 2s infinite;
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  height: auto !important;
 }
 
-/* Gradient text */
-.gradient-text {
-    background: linear-gradient(135deg, #10b981, #3b82f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.App {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: auto !important;
 }
 
-/* Glass morphism effect */
-.glass {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+/* Fix main content area */
+main {
+  flex: 1;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  width: 100%;
 }
 
-/* Shimmer loading effect */
-.shimmer {
-    background: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%, #f0f0f0 100%);
-    background-size: 1000px 100%;
-    animation: shimmer 2s linear infinite;
+/* Fix footer */
+footer {
+  margin-top: 0;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  flex-shrink: 0;
+  width: 100%;
 }
 
-/* Hover glow effect */
-.hover-glow:hover {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+footer > *:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 1rem !important;
+}
+
+/* Ensure no extra spacing after footer */
+footer + * {
+  display: none;
+}
+
+/* Hide stray text nodes */
+body > *:not(#root) {
+  display: none !important;
+}
+
+/* Remove any default spacing from container */
+.container {
+  margin-bottom: 0;
 }

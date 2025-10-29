@@ -87,7 +87,6 @@ const MainHeader = ({ cartCount = 0, wishlistCount = 0 }) => {
             >
               <ShoppingCart className="h-5 w-5" />
               <div className="hidden md:flex flex-col items-start">
-                <span className="text-[10px] opacity-90">My Cart</span>
                 <span className="text-sm font-bold">₹0.00</span>
               </div>
               {cartCount > 0 && (

@@ -299,7 +299,7 @@ const CategoryPage = () => {
           {/* Products Grid */}
           <div className="md:col-span-3">
             {filteredProducts.length > 0 ? (
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-2 gap-3 md:gap-4">
                 {filteredProducts.map((product) => (
                   <BacolaProductCard
                     key={product.id}
