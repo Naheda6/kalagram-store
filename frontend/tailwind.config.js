@@ -66,9 +66,8 @@ module.exports = {
                         }
                 },
                 fontFamily: {
-                        'display': ['Playfair Display', 'serif'],
-                        'sans': ['Inter', 'sans-serif'],
-                },
+      lexend: ['Lexend', 'sans-serif'],
+    },
                 keyframes: {
                         'accordion-down': {
                                 from: {

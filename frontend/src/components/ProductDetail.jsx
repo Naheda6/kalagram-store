@@ -216,31 +216,32 @@ const ProductDetail = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex gap-3 mb-6">
-                <button
-                  onClick={handleAddToCart}
-                  className="flex-1 bg-[#fdc040] hover:bg-[#e5ad3a] text-gray-900 font-bold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
-                >
-                  <ShoppingCart className="h-5 w-5" />
-                  Add to Cart
-                </button>
-                <button
-                  onClick={handleAddToWishlist}
-                  className={`p-4 border-2 rounded-lg transition-colors ${
-                    isWishlisted 
-                      ? 'bg-red-50 border-red-500 text-red-500' 
-                      : 'border-gray-300 text-gray-600 hover:border-red-500 hover:text-red-500'
-                  }`}
-                >
-                  <Heart className={`h-6 w-6 ${isWishlisted ? 'fill-current' : ''}`} />
-                </button>
-                <button
-                  onClick={handleShare}
-                  className="p-4 border-2 border-gray-300 text-gray-600 hover:border-[#2bbef9] hover:text-[#6A4A2B] rounded-lg transition-colors"
-                >
-                  <Share2 className="h-6 w-6" />
-                </button>
-              </div>
+<div className="flex gap-3 mb-6">
+  <button
+    onClick={handleAddToCart}
+    className="flex-1 bg-[#fdc040] hover:bg-[#e5ad3a] text-gray-900 font-bold h-12 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+  >
+    <ShoppingCart className="h-5 w-5" />
+    <span className="sm:hidden">Add</span>
+    <span className="hidden sm:inline">Add to Cart</span>
+  </button>
+  <button
+    onClick={handleAddToWishlist}
+    className={`w-12 h-12 border-2 rounded-lg transition-colors flex items-center justify-center flex-shrink-0 ${
+      isWishlisted 
+        ? 'bg-red-50 border-red-500 text-red-500' 
+        : 'border-gray-300 text-gray-600 hover:border-red-500 hover:text-red-500'
+    }`}
+  >
+    <Heart className={`h-5 w-5 ${isWishlisted ? 'fill-current' : ''}`} />
+  </button>
+  <button
+    onClick={handleShare}
+    className="w-12 h-12 border-2 border-gray-300 text-gray-600 hover:border-[#2bbef9] hover:text-[#6A4A2B] rounded-lg transition-colors flex items-center justify-center flex-shrink-0"
+  >
+    <Share2 className="h-5 w-5" />
+  </button>
+</div>
 
               <button
                 onClick={handleBuyNow}
@@ -268,145 +269,146 @@ const ProductDetail = () => {
   </div>
 </div>
               {/* Delivery Info */}
-              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                <div className="flex items-start gap-3 mb-3">
-                  <MapPin className="h-5 w-5 text-[#6A4A2B] flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-gray-900 mb-1">Delivery Options</p>
-                    <p className="text-sm text-gray-700">Enter pincode to check delivery availability</p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="Enter pincode"
-                    className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2bbef9]"
-                  />
-                  <button className="px-6 py-2 bg-[#2bbef9] text-white font-semibold rounded-lg hover:bg-[#1da5db] transition-colors">
-                    Check
-                  </button>
-                </div>
-              </div>
+<div className="mt-6 p-4 bg-blue-50 rounded-lg">
+  <div className="flex items-start gap-3 mb-3">
+    <MapPin className="h-5 w-5 text-[#6A4A2B] flex-shrink-0 mt-0.5" />
+    <div className="flex-1">
+      <p className="font-semibold text-gray-900 mb-1">Delivery Options</p>
+      <p className="text-sm text-gray-700">Enter pincode to check delivery availability</p>
+    </div>
+  </div>
+  <div className="flex flex-col sm:flex-row gap-2">
+    <input
+      type="text"
+      placeholder="Enter pincode"
+      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2bbef9] text-sm sm:text-base"
+      maxLength="6"
+    />
+    <button className="w-full sm:w-auto px-6 py-2 bg-[#2bbef9] text-white font-semibold rounded-lg hover:bg-[#1da5db] transition-colors whitespace-nowrap">
+      Check
+    </button>
+  </div>
+</div>
             </div>
           </div>
         </div>
 
         {/* Product Details Tabs/Accordion */}
-        <div className="bg-white rounded-lg shadow-sm p-4 md:p-8 mb-6">
-          <Tabs defaultValue="description" className="w-full">
-            <TabsList className="w-full grid grid-cols-3 md:grid-cols-4 mb-6">
-              <TabsTrigger value="description">Description</TabsTrigger>
-              <TabsTrigger value="specifications">Specifications</TabsTrigger>
-              <TabsTrigger value="reviews">Reviews ({reviews.length})</TabsTrigger>
-              {product.howToUse && <TabsTrigger value="how-to-use" className="hidden md:block">How to Use</TabsTrigger>}
-            </TabsList>
+<div className="bg-white rounded-lg shadow-sm p-4 md:p-8 mb-6">
+  <Tabs defaultValue="description" className="w-full">
+    <TabsList className="w-full flex flex-wrap gap-1 h-auto bg-transparent p-0 md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-2 md:p-1 mb-6">
+      <TabsTrigger value="description" className="flex-1 min-w-[100px] data-[state=active]:bg-white data-[state=active]:shadow-sm">Description</TabsTrigger>
+      <TabsTrigger value="specifications" className="flex-1 min-w-[100px] data-[state=active]:bg-white data-[state=active]:shadow-sm">Specifications</TabsTrigger>
+      <TabsTrigger value="reviews" className="flex-1 min-w-[100px] data-[state=active]:bg-white data-[state=active]:shadow-sm">Reviews ({reviews.length})</TabsTrigger>
+      {product.howToUse && <TabsTrigger value="how-to-use" className="flex-1 min-w-[100px] md:block data-[state=active]:bg-white data-[state=active]:shadow-sm">How to Use</TabsTrigger>}
+    </TabsList>
 
-            <TabsContent value="description" className="mt-0">
-              <div className="prose max-w-none">
-                <p className="text-gray-700 leading-relaxed mb-4">{product.description}</p>
-                {product.features && (
-                  <>
-                    <h3 className="text-lg font-bold text-gray-900 mb-3">Key Features:</h3>
-                    <ul className="space-y-2">
-                      {product.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                )}
-              </div>
-            </TabsContent>
+    <TabsContent value="description" className="mt-0">
+      <div className="prose max-w-none">
+        <p className="text-gray-700 leading-relaxed mb-4">{product.description}</p>
+        {product.features && (
+          <>
+            <h3 className="text-lg font-bold text-gray-900 mb-3">Key Features:</h3>
+            <ul className="space-y-2">
+              {product.features.map((feature, idx) => (
+                <li key={idx} className="flex items-start gap-2">
+                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+    </TabsContent>
 
-            <TabsContent value="specifications" className="mt-0">
-              {product.specifications ? (
-                <div className="grid md:grid-cols-2 gap-4">
-                  {Object.entries(product.specifications).map(([key, value]) => (
-                    <div key={key} className="flex py-3 border-b">
-                      <span className="font-semibold text-gray-700 w-1/2">{key}:</span>
-                      <span className="text-gray-900 w-1/2">{value}</span>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-gray-600">No specifications available</p>
-              )}
-            </TabsContent>
-
-            <TabsContent value="reviews" className="mt-0">
-              {reviews.length > 0 ? (
-                <div className="space-y-6">
-                  {/* Overall Rating Summary */}
-                  <div className="flex items-center gap-6 p-6 bg-gray-50 rounded-lg">
-                    <div className="text-center">
-                      <div className="text-5xl font-black text-gray-900 mb-2">{product.rating}</div>
-                      <div className="flex items-center gap-1 mb-2">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                        ))}
-                      </div>
-                      <p className="text-sm text-gray-600">{product.reviews} Reviews</p>
-                    </div>
-                  </div>
-
-                  {/* Individual Reviews */}
-                  {reviews.map((review) => (
-                    <div key={review.id} className="border-b pb-6 last:border-b-0">
-                      <div className="flex items-start gap-4">
-                        <img
-                          src={review.userAvatar}
-                          alt={review.userName}
-                          className="w-12 h-12 rounded-full"
-                        />
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="font-semibold text-gray-900">{review.userName}</span>
-                            {review.verified && (
-                              <Badge variant="outline" className="text-green-600 border-green-600">
-                                <Check className="h-3 w-3 mr-1" />
-                                Verified
-                              </Badge>
-                            )}
-                          </div>
-                          <div className="flex items-center gap-2 mb-2">
-                            <div className="flex">
-                              {[...Array(5)].map((_, i) => (
-                                <Star
-                                  key={i}
-                                  className={`h-4 w-4 ${
-                                    i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
-                                  }`}
-                                />
-                              ))}
-                            </div>
-                            <span className="text-sm text-gray-500">{review.date}</span>
-                          </div>
-                          <h4 className="font-semibold text-gray-900 mb-2">{review.title}</h4>
-                          <p className="text-gray-700 mb-3">{review.comment}</p>
-                          <button className="text-sm text-gray-600 hover:text-[#6A4A2B]">
-                            Helpful ({review.helpful})
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-gray-600 text-center py-8">No reviews yet. Be the first to review this product!</p>
-              )}
-            </TabsContent>
-
-            {product.howToUse && (
-              <TabsContent value="how-to-use" className="mt-0">
-                <div className="prose max-w-none">
-                  <p className="text-gray-700 leading-relaxed">{product.howToUse}</p>
-                </div>
-              </TabsContent>
-            )}
-          </Tabs>
+    <TabsContent value="specifications" className="mt-0">
+      {product.specifications ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+          {Object.entries(product.specifications).map(([key, value]) => (
+            <div key={key} className="flex flex-col sm:flex-row py-3 border-b">
+              <span className="font-semibold text-gray-700 sm:w-1/2 mb-1 sm:mb-0">{key}:</span>
+              <span className="text-gray-900 sm:w-1/2">{value}</span>
+            </div>
+          ))}
         </div>
+      ) : (
+        <p className="text-gray-600">No specifications available</p>
+      )}
+    </TabsContent>
+
+    <TabsContent value="reviews" className="mt-0">
+      {reviews.length > 0 ? (
+        <div className="space-y-6">
+          {/* Overall Rating Summary */}
+          <div className="flex items-center gap-6 p-6 bg-gray-50 rounded-lg">
+            <div className="text-center">
+              <div className="text-5xl font-black text-gray-900 mb-2">{product.rating}</div>
+              <div className="flex items-center gap-1 mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <p className="text-sm text-gray-600">{product.reviews} Reviews</p>
+            </div>
+          </div>
+
+          {/* Individual Reviews */}
+          {reviews.map((review) => (
+            <div key={review.id} className="border-b pb-6 last:border-b-0">
+              <div className="flex items-start gap-4">
+                <img
+                  src={review.userAvatar}
+                  alt={review.userName}
+                  className="w-12 h-12 rounded-full"
+                />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="font-semibold text-gray-900">{review.userName}</span>
+                    {review.verified && (
+                      <Badge variant="outline" className="text-green-600 border-green-600">
+                        <Check className="h-3 w-3 mr-1" />
+                        Verified
+                      </Badge>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`h-4 w-4 ${
+                            i < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="text-sm text-gray-500">{review.date}</span>
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2">{review.title}</h4>
+                  <p className="text-gray-700 mb-3">{review.comment}</p>
+                  <button className="text-sm text-gray-600 hover:text-[#6A4A2B]">
+                    Helpful ({review.helpful})
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-gray-600 text-center py-8">No reviews yet. Be the first to review this product!</p>
+      )}
+    </TabsContent>
+
+    {product.howToUse && (
+      <TabsContent value="how-to-use" className="mt-0">
+        <div className="prose max-w-none">
+          <p className="text-gray-700 leading-relaxed">{product.howToUse}</p>
+        </div>
+      </TabsContent>
+    )}
+  </Tabs>
+</div>
 
         {/* Frequently Bought Together */}
         {frequentlyBoughtList.length > 0 && (
